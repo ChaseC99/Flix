@@ -37,6 +37,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.titleLabel.text = title
         cell.synopsisLabel.text = synopsis
         
+        
         return cell
     }
     
