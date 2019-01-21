@@ -9,30 +9,42 @@
 import UIKit
 import AlamofireImage
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+    
     @IBOutlet weak var tableView: UITableView!
     
+    let searchController = UISearchController(searchResultsController: nil)
+    
     var movies = [[String:Any]]()
+    var filteredMovies = [[String:Any]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setup TableView
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Movies"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
         
         getMovies()
     }
     
+    // Mark: TableView Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        return filteredMovies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
         
         // Get Movie Information
-        let movie = movies[indexPath.row]
+        let movie = filteredMovies[indexPath.row]
         let title = movie["title"] as! String
         let synopsis = movie["overview"] as! String
         
@@ -51,6 +63,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    // Mark: SearchController Functinos
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        if(searchBarIsEmpty()) {
+            filteredMovies = movies
+        } else {
+            filteredMovies = movies.filter({( movie : [String:Any]) -> Bool in
+                return (movie["title"] as! String).lowercased().contains(searchText.lowercased())
+            })
+        }
+        
+        tableView.reloadData()
+    }
+
+    
     // Get Movies
     //  Sends api request to get a list of movies now playing
     //  Updates the variable movies with the results
@@ -68,6 +102,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 // Get the array of movies
                 self.movies = dataDictionary["results"] as! [[String:Any]]
+                self.filteredMovies = self.movies
                 print(self.movies)
                 
                 // Reload table view data
