@@ -31,22 +31,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
         
+        // Get Movie Information
         let movie = movies[indexPath.row]
         let title = movie["title"] as! String
         let synopsis = movie["overview"] as! String
         
+        // Set Movie Information
         cell.titleLabel.text = title
         cell.synopsisLabel.text = synopsis
         
+        // Get Movie Poster
         let baseUrl = "https://image.tmdb.org/t/p/w185"
         let posterPath = movie["poster_path"] as! String
         let posterUrl = URL(string: baseUrl + posterPath)
         
+        // Set Movie Poster
         cell.pictureView.af_setImage(withURL: posterUrl!)
         
         return cell
     }
     
+    // Get Movies
+    //  Sends api request to get a list of movies now playing
+    //  Updates the variable movies with the results
     func getMovies() {
         // Set Up Request
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
