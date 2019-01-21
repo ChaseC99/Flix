@@ -12,6 +12,7 @@
 		C94D9FAC21F575690063E2D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94D9FAA21F575690063E2D4 /* Main.storyboard */; };
 		C94D9FAE21F5756A0063E2D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C94D9FAD21F5756A0063E2D4 /* Assets.xcassets */; };
 		C94D9FB121F5756A0063E2D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94D9FAF21F5756A0063E2D4 /* LaunchScreen.storyboard */; };
+		C94D9FB921F582200063E2D4 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D9FB821F582200063E2D4 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		C94D9FAD21F5756A0063E2D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C94D9FB021F5756A0063E2D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C94D9FB221F5756A0063E2D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C94D9FB821F582200063E2D4 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				C94D9FA621F575690063E2D4 /* AppDelegate.swift */,
 				C94D9FA821F575690063E2D4 /* ViewController.swift */,
 				C94D9FAA21F575690063E2D4 /* Main.storyboard */,
+				C94D9FB821F582200063E2D4 /* MovieCell.swift */,
 				C94D9FAD21F5756A0063E2D4 /* Assets.xcassets */,
 				C94D9FAF21F5756A0063E2D4 /* LaunchScreen.storyboard */,
 				C94D9FB221F5756A0063E2D4 /* Info.plist */,
@@ -137,6 +140,7 @@
 			files = (
 				C94D9FA921F575690063E2D4 /* ViewController.swift in Sources */,
 				C94D9FA721F575690063E2D4 /* AppDelegate.swift in Sources */,
+				C94D9FB921F582200063E2D4 /* MovieCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
