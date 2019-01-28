@@ -112,5 +112,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         task.resume()
     }
     
+    /*
+     // MARK: - Navigation
+    */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Find selected movie
+        let movieCell = sender as! MovieCell
+        let indexPath = tableView.indexPath(for: movieCell)!
+        let movie = movies[indexPath.row]
+        
+        // Pass movie details to the view controller
+        let detailsViewController = segue.destination as! MovieDetailsViewController
+        detailsViewController.movie = movie
+        
+        // Clean up navigation animation
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+ 
 }
 

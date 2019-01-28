@@ -67,6 +67,7 @@
                                             <outlet property="pictureView" destination="FDH-dA-7Ga" id="WAB-Mm-foC"/>
                                             <outlet property="synopsisLabel" destination="8xk-UA-MQp" id="lHf-yn-KhR"/>
                                             <outlet property="titleLabel" destination="iTb-O7-bY0" id="04C-ui-DGP"/>
+                                            <segue destination="1Nc-5I-cK9" kind="show" id="x8e-f5-JVP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -89,6 +90,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+        </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="sl2-U6-Nd9">
+            <objects>
+                <viewController id="1Nc-5I-cK9" customClass="MovieDetailsViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vXu-lD-e6S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zDx-M8-X4H">
+                                <rect key="frame" x="0.0" y="64" width="375" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zDx-M8-X4H" secondAttribute="height" multiplier="125:72" id="Hs7-nr-6RX"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pdy-Ew-Q1V">
+                                <rect key="frame" x="16" y="218" width="137" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="137" id="dxZ-Jv-Gzb"/>
+                                    <constraint firstAttribute="height" constant="180" id="uSL-3y-BtC"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDT-aN-eX4">
+                                <rect key="frame" x="16" y="406" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Lp-ZT-qbf">
+                                <rect key="frame" x="161" y="288" width="73.5" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rJk-f1-ryI" firstAttribute="trailing" secondItem="JDT-aN-eX4" secondAttribute="trailing" constant="16" id="8WD-tb-jkS"/>
+                            <constraint firstItem="2Lp-ZT-qbf" firstAttribute="leading" secondItem="Pdy-Ew-Q1V" secondAttribute="trailing" constant="8" id="9RS-sC-dV7"/>
+                            <constraint firstItem="Pdy-Ew-Q1V" firstAttribute="top" secondItem="rJk-f1-ryI" secondAttribute="top" constant="154" id="DGj-6F-qj0"/>
+                            <constraint firstItem="JDT-aN-eX4" firstAttribute="leading" secondItem="rJk-f1-ryI" secondAttribute="leading" constant="16" id="KYz-ZI-8OE"/>
+                            <constraint firstItem="zDx-M8-X4H" firstAttribute="trailing" secondItem="rJk-f1-ryI" secondAttribute="trailing" id="Rtl-Cb-X5d"/>
+                            <constraint firstItem="zDx-M8-X4H" firstAttribute="top" secondItem="rJk-f1-ryI" secondAttribute="top" id="SOa-7V-hsC"/>
+                            <constraint firstItem="Pdy-Ew-Q1V" firstAttribute="leading" secondItem="rJk-f1-ryI" secondAttribute="leading" constant="16" id="ZjH-om-kbZ"/>
+                            <constraint firstItem="2Lp-ZT-qbf" firstAttribute="top" secondItem="zDx-M8-X4H" secondAttribute="bottom" constant="8" id="lOf-8D-M6B"/>
+                            <constraint firstItem="JDT-aN-eX4" firstAttribute="top" secondItem="Pdy-Ew-Q1V" secondAttribute="bottom" constant="8" id="uip-0e-6Hc"/>
+                            <constraint firstItem="zDx-M8-X4H" firstAttribute="leading" secondItem="rJk-f1-ryI" secondAttribute="leading" id="y2g-CE-SiT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rJk-f1-ryI"/>
+                    </view>
+                    <connections>
+                        <outlet property="backdropView" destination="zDx-M8-X4H" id="g3J-vW-lGB"/>
+                        <outlet property="posterView" destination="Pdy-Ew-Q1V" id="K7z-G9-IyP"/>
+                        <outlet property="synopsisLabel" destination="JDT-aN-eX4" id="CcK-lK-sqp"/>
+                        <outlet property="titleLabel" destination="2Lp-ZT-qbf" id="b0X-Up-5Aa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bsc-Ek-SbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1824.8" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cvA-9G-VLx">
