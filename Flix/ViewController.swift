@@ -103,7 +103,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 // Get the array of movies
                 self.movies = dataDictionary["results"] as! [[String:Any]]
                 self.filteredMovies = self.movies
-                print(self.movies)
                 
                 // Reload table view data
                 self.tableView.reloadData()
