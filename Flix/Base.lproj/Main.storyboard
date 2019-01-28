@@ -174,11 +174,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zDx-M8-X4H">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zDx-M8-X4H">
                                 <rect key="frame" x="0.0" y="64" width="375" height="216"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zDx-M8-X4H" secondAttribute="height" multiplier="125:72" id="Hs7-nr-6RX"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="n1A-3b-yAP" appends="YES" id="kZa-MQ-Tb7"/>
+                                </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pdy-Ew-Q1V">
                                 <rect key="frame" x="16" y="218" width="137" height="180"/>
@@ -223,8 +227,47 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bsc-Ek-SbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="n1A-3b-yAP">
+                    <connections>
+                        <segue destination="Bbu-zP-TWY" kind="show" id="vzV-OZ-IIC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2039" y="511"/>
+        </scene>
+        <!--Trailer View Controller-->
+        <scene sceneID="7dv-oX-vAF">
+            <objects>
+                <viewController id="Bbu-zP-TWY" customClass="TrailerViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GSr-b3-jPU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3z-Ih-Mw6">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="C3z-Ih-Mw6" firstAttribute="top" secondItem="gR6-aI-2Jx" secondAttribute="top" id="JtS-0c-F8U"/>
+                            <constraint firstItem="C3z-Ih-Mw6" firstAttribute="trailing" secondItem="gR6-aI-2Jx" secondAttribute="trailing" id="Lh5-0Q-xSO"/>
+                            <constraint firstItem="C3z-Ih-Mw6" firstAttribute="bottom" secondItem="gR6-aI-2Jx" secondAttribute="bottom" id="iiD-9R-4cd"/>
+                            <constraint firstItem="C3z-Ih-Mw6" firstAttribute="leading" secondItem="gR6-aI-2Jx" secondAttribute="leading" id="o4b-le-6SK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gR6-aI-2Jx"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="C3z-Ih-Mw6" id="7V8-BH-Qda"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yc1-q0-LOP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3008.8000000000002" y="509.59520239880067"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="cvA-9G-VLx">
@@ -270,6 +313,6 @@
         <image name="superhero_tabbar_item" width="21" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8xC-uu-9Je"/>
+        <segue reference="x8e-f5-JVP"/>
     </inferredMetricsTieBreakers>
 </document>

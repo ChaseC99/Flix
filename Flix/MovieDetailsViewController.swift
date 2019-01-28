@@ -44,16 +44,16 @@ class MovieDetailsViewController: UIViewController {
         // Set Movie Backdrop
         backdropView.af_setImage(withURL: backdropUrl!)
     }
-    
 
     /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Set movie id
+        let id = String(movie["id"] as! Int)
+        let trailerViewController = segue.destination as! TrailerViewController
+        trailerViewController.movieId = id
+    }
+ 
 
 }

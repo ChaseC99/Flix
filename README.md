@@ -13,8 +13,8 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 - [x] (5pts) User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
 
 #### BONUS
-- [ ] (2pts) User can tap a poster in the collection view to see a detail screen of that movie.
-- [ ] (2pts) In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
+- [x] (2pts) User can tap a poster in the collection view to see a detail screen of that movie.
+- [x] (2pts) In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
 
 ### App Walkthough GIF
 
@@ -35,7 +35,7 @@ Gif created with [LICEcap](https://www.cockos.com/licecap/)
 #### BONUS
 - [x] (2pt) User can view the app on various device sizes and orientations.
 - [x] (1pt) Run your app on a real device.
-- [x] User can use search bar to find movies 
+- [x] User can use search bar to find movies. 
 
 ### App Walkthough GIF    
 <img src="https://github.com/ChaseC99/Flix/blob/master/Flix.gif?raw=true" width=250><br>
